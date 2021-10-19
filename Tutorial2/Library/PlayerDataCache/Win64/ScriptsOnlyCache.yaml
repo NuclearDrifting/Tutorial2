@@ -71,9 +71,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2994}
     - Class: 114
-      Script: {instanceID: 3238}
+      Script: {instanceID: 3044}
     - Class: 114
-      Script: {instanceID: 17008}
+      Script: {instanceID: 3240}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -293,6 +293,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 66bca5cc6a18c5298ec75235e56a84d6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraScript
   - hash:
       serializedVersion: 2
       Hash: a306e12d896ddcca949923c805691027
@@ -623,13 +629,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 66bca5cc6a18c5298ec75235e56a84d6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraScript
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Mothership/Desktop/Tutorial2/Build/Tutorial2.exe
+  playerPath: C:/Users/Mothership/Desktop/Build/Tutorial2.exe
