@@ -14,7 +14,6 @@ public class PlayerScript : MonoBehaviour
     public Text debug1;
 
     private int countobj = 0;
-    private int countbadobj = 0;
     private int scoreValue = 0;
     private int livesValue = 3;
 
@@ -34,7 +33,7 @@ public class PlayerScript : MonoBehaviour
         winText.text = "";
     }
 
-    void Update()
+    void FixedUpdate()
     {
         float hozMovement = Input.GetAxis("Horizontal");
         float vertMovement = Input.GetAxis("Vertical");
@@ -52,15 +51,14 @@ public class PlayerScript : MonoBehaviour
            Flip();
         }
 
-        if (hozMovement > 0 && facingRight == true)
+       //if (hozMovement > 0 && facingRight == true)
         {
-            Debug.Log ("Facing Right");
-            //debug1.text = "Facing Right";
+        //    Debug.Log ("Facing Right");
         }
 
-        if (hozMovement < 0 && facingRight == false)
+       // if (hozMovement < 0 && facingRight == false)
         {
-            Debug.Log ("Facing Left");
+       //     Debug.Log ("Facing Left");
         }
 
         if (vertMovement > 0 && isOnGround == false)
@@ -95,14 +93,13 @@ public class PlayerScript : MonoBehaviour
         {
             scoreValue -= 1;
             livesValue -= 1;
-            countbadobj += 1;
             score.text = "Score: " + scoreValue.ToString();
             lives.text = "Lives: " + livesValue.ToString();
             Destroy(collision.collider.gameObject);
         }
 
         // Player Loses All Lives
-        if (countbadobj == 3)
+        if (livesValue == 0)
         {
             winText.text = "You Lose! Game Created by Junior Rojas";
             Destroy (gameObject);
@@ -125,7 +122,7 @@ public class PlayerScript : MonoBehaviour
         {
             if(Input.GetKey(KeyCode.W))
             {
-                rd2d.AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+                rd2d.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
             }
         }
     }   
