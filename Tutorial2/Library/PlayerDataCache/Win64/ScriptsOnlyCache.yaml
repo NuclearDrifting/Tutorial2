@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraScript
+    - EnemyMovement
     - PlayerScript
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -74,6 +75,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3044}
     - Class: 114
       Script: {instanceID: 3240}
+    - Class: 114
+      Script: {instanceID: 22656}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -103,7 +106,7 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: ba8885765ad8fe055d2176fbae6efcd9
+      Hash: f96a083f08a0de215a5e9e923ee8da21
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerScript
@@ -629,7 +632,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: c1af79dcdb18565867485fff12f5d2fc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EnemyMovement
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Mothership/Desktop/Build/Tutorial2.exe
+  playerPath: C:/Users/Mothership/Desktop/Tutorial2/Tutorial2.exe
