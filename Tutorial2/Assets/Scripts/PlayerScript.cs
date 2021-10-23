@@ -23,6 +23,13 @@ public class PlayerScript : MonoBehaviour
     public float checkRadius;
     public LayerMask allGround;
 
+    public Transform Destination;
+    private int secretcount = 0;
+
+    public AudioClip Background;
+    public AudioClip Effect;
+    public AudioSource musicSource;
+
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
@@ -86,6 +93,8 @@ public class PlayerScript : MonoBehaviour
             countobj = countobj += 1;
             score.text = "Score: " + scoreValue.ToString();
             Destroy(collision.collider.gameObject);
+            musicSource.clip = Effect;
+            musicSource.Play();
         }
 
         // Player Hits An Enemy
@@ -106,7 +115,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         // Player Collects All Coins
-        if (countobj == 4)
+        if (countobj == 8)
         {
             winText.text = "You Win! Game Created by Junior Rojas";
             rd2d.isKinematic = true;
@@ -125,7 +134,19 @@ public class PlayerScript : MonoBehaviour
                 rd2d.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
             }
         }
-    }   
+    } 
+
+        // Teleportaion
+    void Update()  
+    {
+        if (countobj == 4 && secretcount == 0)
+        {
+            GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
+            secretcount = secretcount + 1;
+            livesValue = 3;
+            lives.text = "Lives: " + livesValue.ToString();
+        }
+    }
 
     void Flip()
     {
