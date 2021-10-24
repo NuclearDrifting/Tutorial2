@@ -139,7 +139,7 @@ public class PlayerScript : MonoBehaviour
         // Teleportaion
     void Update()  
     {
-        if (countobj == 4 && secretcount == 0)
+        if (countobj == 1 && secretcount == 0)
         {
             GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
             secretcount = secretcount + 1;
