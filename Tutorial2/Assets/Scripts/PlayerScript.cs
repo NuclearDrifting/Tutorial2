@@ -30,6 +30,8 @@ public class PlayerScript : MonoBehaviour
     public AudioClip Effect;
     public AudioSource musicSource;
 
+    Animator anim;
+
     void Start()
     {
         rd2d = GetComponent<Rigidbody2D>();
@@ -38,6 +40,48 @@ public class PlayerScript : MonoBehaviour
         lives.text = "Lives: " + livesValue.ToString();
         debug1.text = "";
         winText.text = "";
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetInteger("State", 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            anim.SetInteger("State", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetInteger("State", 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            anim.SetInteger("State", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            anim.SetInteger("State", 2);
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            anim.SetInteger("State", 0);
+        }
+
+        if (countobj == 1 && secretcount == 0)
+        {
+            GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
+            secretcount = secretcount + 1;
+            livesValue = 3;
+            lives.text = "Lives: " + livesValue.ToString();
+        }
     }
 
     void FixedUpdate()
@@ -135,18 +179,6 @@ public class PlayerScript : MonoBehaviour
             }
         }
     } 
-
-        // Teleportaion
-    void Update()  
-    {
-        if (countobj == 1 && secretcount == 0)
-        {
-            GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
-            secretcount = secretcount + 1;
-            livesValue = 3;
-            lives.text = "Lives: " + livesValue.ToString();
-        }
-    }
 
     void Flip()
     {

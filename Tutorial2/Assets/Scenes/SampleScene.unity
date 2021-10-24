@@ -561,8 +561,8 @@ GameObject:
   - component: {fileID: 393021152}
   - component: {fileID: 393021151}
   - component: {fileID: 393021150}
-  - component: {fileID: 393021154}
   - component: {fileID: 393021155}
+  - component: {fileID: 393021154}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -657,7 +657,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8d98a133612b9024d93d3030b794411c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9596420d4d7a244ea0dd8fa90a2b656, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -676,15 +676,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393021149}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.047, z: 0}
-  m_LocalScale: {x: 3.7318714, y: 5.2722993, z: 3.6676867}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
+  m_LocalScale: {x: 0.40274787, y: 0.41381288, z: 0.28786984}
   m_Children:
   - {fileID: 527548852}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &393021154
-BoxCollider2D:
+--- !u!70 &393021154
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -696,19 +696,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.32, y: 0.32}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.20997521, y: 0.049541324}
+  m_Size: {x: 2.7594507, y: 4.679692}
+  m_Direction: 0
 --- !u!82 &393021155
 AudioSource:
   m_ObjectHideFlags: 0
@@ -719,9 +709,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b1da73e409fbd5c4896bcdbd8a4794a0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1215,7 +1205,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527548851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0026796209, y: -0.172, z: -0.048846964}
+  m_LocalPosition: {x: -0.18, y: -2.33, z: -0.048846964}
   m_LocalScale: {x: 0.2679621, y: 0.18967056, z: 0.27265143}
   m_Children: []
   m_Father: {fileID: 393021153}
@@ -1948,7 +1938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMarker: {fileID: 1402108177}
   endMarker: {fileID: 106506506}
-  speed: 8
+  speed: 4
   startTime: 0
 --- !u!212 &924030290
 SpriteRenderer:
