@@ -41,13 +41,36 @@ public class PlayerScript : MonoBehaviour
         debug1.text = "";
         winText.text = "";
         anim = GetComponent<Animator>();
+        musicSource.clip = Background;
+        musicSource.Play();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+
+        float vertMovement = Input.GetAxis("Vertical");
+
+        if (countobj == 4 && secretcount == 0)
+        {
+            GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
+            secretcount = secretcount + 1;
+            livesValue = 3;
+            lives.text = "Lives: " + livesValue.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
             anim.SetInteger("State", 1);
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            anim.SetInteger("State", 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetInteger("State", 2);
         }
 
         if (Input.GetKeyUp(KeyCode.D))
@@ -57,30 +80,12 @@ public class PlayerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            anim.SetInteger("State", 1);
+            anim.SetInteger("State", 2);
         }
 
         if (Input.GetKeyUp(KeyCode.A))
         {
             anim.SetInteger("State", 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            anim.SetInteger("State", 2);
-        }
-
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            anim.SetInteger("State", 0);
-        }
-
-        if (countobj == 1 && secretcount == 0)
-        {
-            GameObject.FindWithTag("Player").transform.position = Destination.transform.position;
-            secretcount = secretcount + 1;
-            livesValue = 3;
-            lives.text = "Lives: " + livesValue.ToString();
         }
     }
 
@@ -100,28 +105,7 @@ public class PlayerScript : MonoBehaviour
         else if (facingRight == true && hozMovement < 0)
         {
            Flip();
-        }
-
-       //if (hozMovement > 0 && facingRight == true)
-        {
-        //    Debug.Log ("Facing Right");
-        }
-
-       // if (hozMovement < 0 && facingRight == false)
-        {
-       //     Debug.Log ("Facing Left");
-        }
-
-        if (vertMovement > 0 && isOnGround == false)
-        {
-            Debug.Log ("Jumping");
-        }
-
-        if (vertMovement < 0 && isOnGround == true)
-        {
-            Debug.Log ("Not Jumping");
-        }
-
+        }   
         }
     }
 
@@ -137,8 +121,6 @@ public class PlayerScript : MonoBehaviour
             countobj = countobj += 1;
             score.text = "Score: " + scoreValue.ToString();
             Destroy(collision.collider.gameObject);
-            musicSource.clip = Effect;
-            musicSource.Play();
         }
 
         // Player Hits An Enemy
@@ -156,12 +138,16 @@ public class PlayerScript : MonoBehaviour
         {
             winText.text = "You Lose! Game Created by Junior Rojas";
             Destroy (gameObject);
+            musicSource.Stop();
         }
 
         // Player Collects All Coins
         if (countobj == 8)
         {
             winText.text = "You Win! Game Created by Junior Rojas";
+            musicSource.Stop();
+            musicSource.clip = Effect;
+            musicSource.Play();
             rd2d.isKinematic = true;
             Destroy(rd2d);
         }
